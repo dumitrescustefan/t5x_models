@@ -1,4 +1,4 @@
-PROJECT_DIR=${HOME}"/models/t5x_large"
+PROJECT_DIR=${HOME}"/models/t5x_models"
 T5X_DIR="../../t5x"  # directory where the t5x is cloned.
 MODEL_DIR="gs://myv4-bucket/t5x_large"
 export PYTHONPATH=${PROJECT_DIR}
