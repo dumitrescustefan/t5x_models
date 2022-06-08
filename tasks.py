@@ -31,7 +31,6 @@ BYT5_DEFAULT_OUTPUT_FEATURES = {
 }
 
 
-
 def gen_dataset(split, shuffle=False, seed=None, column="text", dataset_params=None):
     dataset = load_dataset(**dataset_params)
     if shuffle:
