@@ -96,9 +96,9 @@ utils.RestoreCheckpointConfig:
   mode = 'specific'
   dtype = 'float32'
 utils.SaveCheckpointConfig:
-  period = 1000
+  period = 10000
   dtype = 'float32'
-  keep = None  # keep all checkpoints
+  keep = 3  # keep all checkpoints
   save_dataset = False  # don't checkpoint dataset state
 
 trainer.Trainer:
