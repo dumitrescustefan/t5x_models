@@ -12,7 +12,7 @@ from seqio import FunctionDataSource, utils
 TaskRegistry = seqio.TaskRegistry
 
 vocabulary = seqio.SentencePieceVocabulary('gs://t5-data/vocabs/mc4.250000.100extra/sentencepiece.model', extra_ids=0)
-
+byt5_vocabulary = t5.data.ByteVocabulary()
 
 DEFAULT_OUTPUT_FEATURES = {
     "inputs": seqio.Feature(
@@ -20,6 +20,14 @@ DEFAULT_OUTPUT_FEATURES = {
         required=False),
     "targets": seqio.Feature(
         vocabulary=vocabulary, add_eos=True)
+}
+
+BYT5_DEFAULT_OUTPUT_FEATURES = {
+    "inputs": seqio.Feature(
+        vocabulary=byt5_vocabulary, add_eos=True,
+        required=False),
+    "targets": seqio.Feature(
+        vocabulary=byt5_vocabulary, add_eos=True)
 }
 
 
