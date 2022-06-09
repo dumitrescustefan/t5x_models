@@ -131,7 +131,7 @@ TaskRegistry.add(
 
 
 # Final pretraining task used in Raffel et al., 2019 adaptated to NCC
-dataset_name = 'NbAiLab/NCC'
+dataset_name = 'NbAiLab/NCC_small_100'
 dataset_params = {"path": dataset_name, "use_auth_token": True, "streaming": True}
 dataset_shapes = None
 TaskRegistry.add(

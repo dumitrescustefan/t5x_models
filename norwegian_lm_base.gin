@@ -1,0 +1,21 @@
+include 't5x/examples/t5/mt5/base.gin'
+include 'pretrain_cont.gin'
+#include 't5x/configs/runs/pretrain.gin'
+#iinclude 't5x/configs/runs/finetune.gin'
+
+
+# Register necessary SeqIO Tasks/Mixtures.
+import t5.data.mixtures
+import tasks
+
+MIXTURE_OR_TASK_NAME = "ncc_english_prefix_lm_stream"
+TASK_FEATURE_LENGTHS = {"inputs": 512, "targets": 512}
+TRAIN_STEPS = 1_600_000
+DROPOUT_RATE = 0.0 # Changed from the default since T5-1.1 recomments this.
+INITIAL_CHECKPOINT_PATH = "gs://nb-t5x-us-central2/norwegian_NCC_plus_English_t5x_base/checkpoint_1500000"
+PjitPartitioner.num_partitions = 1
+utils.SaveCheckpointConfig.period = 5000
+utils.SaveCheckpointConfig.keep = 3
+
+
+
