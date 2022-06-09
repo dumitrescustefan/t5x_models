@@ -11,10 +11,6 @@ from seqio import FunctionDataSource, utils
 
 TaskRegistry = seqio.TaskRegistry
 
-# Vocabulary (shared by encoder and decoder)
-VOCABULARY = @seqio.SentencePieceVocabulary()
-seqio.SentencePieceVocabulary.sentencepiece_model_file = "gs://myv4-bucket/sentencepiece/ro.model"
-
 vocabulary = seqio.SentencePieceVocabulary('gs://myv4-bucket/sentencepiece/ro.model', extra_ids=0)
 
 DEFAULT_OUTPUT_FEATURES = {
