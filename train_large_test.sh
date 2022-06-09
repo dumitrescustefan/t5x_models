@@ -1,4 +1,4 @@
-PROJECT_DIR=${HOME}"/models/pk-nb-t5x"
+PROJECT_DIR=${HOME}"/models/t5x_models"
 T5X_DIR="../../t5x"  # directory where the t5x is cloned.
 MODEL_DIR="gs://t5x-training/pretrained_models/test"
 MODEL_DIR="gs://myv4-bucket/mt5x_large_temp"
