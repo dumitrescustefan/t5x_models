@@ -1,7 +1,7 @@
 PROJECT_DIR=${HOME}"/models/pk-nb-t5x"
 T5X_DIR="../../t5x"  # directory where the t5x is cloned.
 MODEL_DIR="gs://t5x-training/pretrained_models/test"
-MODEL_DIR="gs://myv4-bucket/mt5x_large"
+MODEL_DIR="gs://myv4-bucket/mt5x_large_temp"
 export PYTHONPATH=${PROJECT_DIR}
 
 python3 ${T5X_DIR}/t5x/train.py \
