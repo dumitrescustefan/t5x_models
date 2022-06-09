@@ -1,0 +1,15 @@
+include 't5x/examples/t5/mt5/base.gin'
+include 'ro_mt5x_base_pretrain.gin'
+
+# Register necessary SeqIO Tasks/Mixtures.
+import t5.data.mixtures
+import ro_mt5x_base_tasks
+
+MIXTURE_OR_TASK_NAME = "rlm_span_corruption_stream"
+TASK_FEATURE_LENGTHS = {"inputs": 512, "targets": 512}
+TRAIN_STEPS = 2_000_000
+DROPOUT_RATE = 0.0 # Changed from the default since T5-1.1 recomments this.
+INITIAL_CHECKPOINT_PATH = "gs://t5-data/pretrained_models/t5x/mt5_base/checkpoint_1000000"
+PjitPartitioner.num_partitions = 2
+
+
