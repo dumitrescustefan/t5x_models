@@ -3,11 +3,11 @@
 #
 # You must also include a binding for MODEL.
 #
-# Required to be set
+# Required to be set:
 #
 # - MIXTURE_OR_TASK_NAME
 # - TASK_FEATURE_LENGTHS
-# - TRAIN_STEPS - include pretrain steps
+# - TRAIN_STEPS
 # - MODEL_DIR: # automatically set when using xm_launch
 #
 # Commonly overridden options:
@@ -31,7 +31,6 @@ TRAIN_STEPS = %gin.REQUIRED
 MODEL_DIR = %gin.REQUIRED
 BATCH_SIZE = 128
 USE_CACHED_TASKS = True
-INITIAL_CHECKPOINT_PATH = %gin.REQUIRED
 
 # DEPRECATED: Import the this module in your gin file.
 MIXTURE_OR_TASK_MODULE = None
@@ -92,13 +91,11 @@ utils.CheckpointConfig:
   restore = @utils.RestoreCheckpointConfig()
   save = @utils.SaveCheckpointConfig()
 utils.RestoreCheckpointConfig:
-  path = %INITIAL_CHECKPOINT_PATH
-  mode = 'specific'
-  dtype = 'float32'
+  path = []  # initialize from scratch
 utils.SaveCheckpointConfig:
   period = 10000
   dtype = 'float32'
-  keep = 3  # keep all checkpoints
+  keep = 5  # keep all checkpoints
   save_dataset = False  # don't checkpoint dataset state
 
 trainer.Trainer:
@@ -107,5 +104,5 @@ trainer.Trainer:
 
 utils.create_learning_rate_scheduler:
   factors = 'constant * rsqrt_decay'
-  base_learning_rate = 0.5 #This is set to half of the original since it is continued training
+  base_learning_rate = 1.0
   warmup_steps = 10000  # 10k to keep consistent with T5/MTF defaults.
