@@ -3,11 +3,11 @@
 #
 # You must also include a binding for MODEL.
 #
-# Required to be set
+# Required to be set:
 #
 # - MIXTURE_OR_TASK_NAME
 # - TASK_FEATURE_LENGTHS
-# - TRAIN_STEPS - include pretrain steps
+# - TRAIN_STEPS
 # - MODEL_DIR: # automatically set when using xm_launch
 #
 # Commonly overridden options:
@@ -91,9 +91,7 @@ utils.CheckpointConfig:
   restore = @utils.RestoreCheckpointConfig()
   save = @utils.SaveCheckpointConfig()
 utils.RestoreCheckpointConfig:
-  path = %INITIAL_CHECKPOINT_PATH
-  mode = 'specific'
-  dtype = 'float32'
+  path = []  # initialize from scratch
 utils.SaveCheckpointConfig:
   period = 10000
   dtype = 'float32'

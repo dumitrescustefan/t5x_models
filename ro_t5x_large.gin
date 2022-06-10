@@ -9,7 +9,6 @@ network.T5Config:
 VOCABULARY = @seqio.SentencePieceVocabulary()
 seqio.SentencePieceVocabulary.sentencepiece_model_file = "gs://myv4-bucket/sentencepiece/ro.model"
 
-
 # Register necessary SeqIO Tasks/Mixtures.
 import t5.data.mixtures
 import ro_t5x_large_tasks
