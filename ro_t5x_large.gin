@@ -1,6 +1,15 @@
 include 't5x/examples/t5/t5_1_1/large.gin'
 include 'ro_t5x_large_pretrain.gin'
 
+
+network.T5Config:
+  vocab_size = 64000
+
+# Vocabulary (shared by encoder and decoder)
+VOCABULARY = @seqio.SentencePieceVocabulary()
+seqio.SentencePieceVocabulary.sentencepiece_model_file = "gs://myv4-bucket/sentencepiece/ro.model"
+
+
 # Register necessary SeqIO Tasks/Mixtures.
 import t5.data.mixtures
 import ro_t5x_large_tasks
@@ -9,7 +18,6 @@ MIXTURE_OR_TASK_NAME = "rlm_span_corruption_stream"
 TASK_FEATURE_LENGTHS = {"inputs": 512, "targets": 512}
 TRAIN_STEPS = 1_500_000
 DROPOUT_RATE = 0.0 # Changed from the default since T5-1.1 recomments this.
-INITIAL_CHECKPOINT_PATH = ""
 PjitPartitioner.num_partitions = 2
 
 

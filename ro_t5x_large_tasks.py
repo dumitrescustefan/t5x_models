@@ -11,7 +11,7 @@ from seqio import FunctionDataSource, utils
 
 TaskRegistry = seqio.TaskRegistry
 
-vocabulary = seqio.SentencePieceVocabulary('gs://t5-data/vocabs/mc4.250000.100extra/sentencepiece.model', extra_ids=0)
+vocabulary = seqio.SentencePieceVocabulary('gs://myv4-bucket/sentencepiece/ro.model', extra_ids=0)
 
 DEFAULT_OUTPUT_FEATURES = {
     "inputs": seqio.Feature(
