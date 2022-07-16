@@ -72,13 +72,13 @@ TaskRegistry.add(
     metric_fns=[]
 )
 ```
-    * set the dataset name, and use_auth_token to True if the dataset is private 
-    * set streaming to True as we don't have to deal with disk space
-    * take care of the task name, as it's referenced in the gin file above
+   * set the dataset name, and use_auth_token to True if the dataset is private 
+   * set streaming to True as we don't have to deal with disk space
+   * take care of the task name, as it's referenced in the gin file above
 
 3. In ``ro_t5x_base_pretrain.gin``: 
-    * set ``BATCH_SIZE`` as large as possible 
-    * in ``utils.SaveCheckpointConfig:`` set period to 100K so it saves every 100K steps, and ``keep`` to keep the last number of checkpoints.
+   * set ``BATCH_SIZE`` as large as possible 
+   * in ``utils.SaveCheckpointConfig:`` set period to 100K so it saves every 100K steps, and ``keep`` to keep the last number of checkpoints.
 
 4. In ``ro_t5x_base.sh``:
    * ``PROJECT_DIR=${HOME}"/models/t5x_models"`` note where you save the models (see Section 3)
