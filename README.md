@@ -101,7 +101,7 @@ Next, let's create a TPU VM. For a v4-8, run the following in the GCP console:
 ```bash
 gcloud alpha compute tpus tpu-vm create <tpu_name> --zone <zone> --accelerator-type v4-8 --version v2-alpha-tpuv4 --subnetwork=tpusubnet
 ```
-For anything larger than a v4-32: 
+For anything larger than a v4-8: 
 ```bash
 gcloud alpha compute tpus tpu-vm create <tpu_name> --zone <zone> --accelerator-type v4-32 --version v2-alpha-tpuv4-pod --subnetwork=tpusubnet
 ```
@@ -206,10 +206,7 @@ Many thanks to the **Tensorflow Research Credits (TRC) team** without which thes
 
 I've found that the v4s are much more stable than the v3s; maybe it was a capacity issue with the v3s, but considering they were all on-demand, I've never had a v3 run for more than a week or two without some reset and a new IP address. The v4s never crashed even once. Plus, they are a beast of a device: training a 1.2B model for 4M steps in 2-3 weeks on a v4-32 is amazing.
 
-Last but not least, I'd like to personally thank **[Per Egil Kummervold](https://github.com/peregilk/)** without whom we could not have set up the TPUs and training scripts.
-
-
 _Yours truly,_ 
 
-_Stefan Dumitrescu, Mihai Ilie and Per Egil Kummervold_
+_[Stefan Dumitrescu](https://github.com/dumitrescustefan), [Mihai Ilie](https://github.com/iliemihai) and [Per Egil Kummervold](https://huggingface.co/north)_
 
