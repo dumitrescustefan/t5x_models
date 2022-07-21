@@ -1,5 +1,3 @@
-MODEL_PATH_FX = "t5x-base_fl/checkpoint_2100000/"
-MODEL_PATH_PT = "t5x-base_pt/checkpoint_2100000/"
 import sys
 import torch
 import numpy as np
