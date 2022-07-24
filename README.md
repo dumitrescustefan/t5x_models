@@ -197,8 +197,19 @@ On a v4-32, the t5x-large trained to 4M steps in about 3 weeks. On a v4-8, a t5x
 
 #### Checkpoint conversion
 
-(coming soon, we're working on them)
+When converting the checkpoints you have to install the following dependency:
 
+``pip3 install --upgrade tensorstore==0.1.13``
+
+In ``convert.sh`` script you will have to modify the path to the folder with checkpoints:
+
+``folder=CHECKPOINTS_PATH``
+
+For example ``folder=mt5x-base``, and after run:
+
+``bash convert.sh``
+
+This will convert checkpoints from Tensorflow to Flax and Pytorch.
 
 ## Acknowledgements
 
