@@ -211,6 +211,51 @@ For example ``folder=mt5x-base``, and after run:
 
 This will convert checkpoints from Tensorflow to Flax and Pytorch.
 
+In each checkpoint path you will have to copy the tokenizer files:
+
+```
+t5x_models
+│   convert.sh
+│   convert_flax_to_pytorch.py
+│   convert_t5x_checkpoint_to_flax.py
+├── mt5x-base
+│           ├── checkpoint_4000000/
+│                                 ├── special_tokens_map.json
+│                                 ├── spiece.model
+│                                 ├── tokenizer.json
+│                                 ├── tokenizer_config.json
+│           ├── checkpoint_3900000/
+│                                 ├── special_tokens_map.json
+│                                 ├── spiece.model
+│                                 ├── tokenizer.json
+│                                 ├── tokenizer_config.json
+│           ...
+├── mt5x-base_fl
+│           ├── checkpoint_4000000/
+│                                 ├── special_tokens_map.json
+│                                 ├── spiece.model
+│                                 ├── tokenizer.json
+│                                 ├── tokenizer_config.json
+│           ├── checkpoint_3900000/
+│                                 ├── special_tokens_map.json
+│                                 ├── spiece.model
+│                                 ├── tokenizer.json
+│                                 ├── tokenizer_config.json
+│           ...
+├── mt5x-base_pt
+│           ├── checkpoint_4000000/
+│                                 ├── special_tokens_map.json
+│                                 ├── spiece.model
+│                                 ├── tokenizer.json
+│                                 ├── tokenizer_config.json
+│           ├── checkpoint_3900000/
+│                                 ├── special_tokens_map.json
+│                                 ├── spiece.model
+│                                 ├── tokenizer.json
+│                                 ├── tokenizer_config.json
+│           ...
+```
+
 ## Acknowledgements
 
 Many thanks to the **Tensorflow Research Credits (TRC) team** without which these models would not have been possible to train and opensource. Their support team was quick and helpful throughout the months I've had TRC credits. If only the TPU on-line documentation was as good as their support :)
